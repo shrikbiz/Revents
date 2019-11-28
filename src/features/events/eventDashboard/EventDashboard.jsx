@@ -25,7 +25,6 @@ class EventDashboard extends Component {
      }
 
 
-
     render() { 
         const {eventsFromDashboard, isOpen} = this.state;
 
