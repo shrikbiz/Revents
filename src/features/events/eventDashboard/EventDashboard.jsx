@@ -14,7 +14,6 @@ class EventDashboard extends Component {
      handleIsOpenToggle =() =>{
         let {isOpen} =  this.state;
         isOpen = (isOpen)? false : true;
-        // console.log(isOpen);
         this.setState({isOpen})
      }
 
@@ -22,7 +21,6 @@ class EventDashboard extends Component {
      handleFormClose = () =>{
         let {isOpen} = this.state
         if(isOpen === true) isOpen = false;
-        // console.log(isOpen);
         this.setState({isOpen})
      }
 
