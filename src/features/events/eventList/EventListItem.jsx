@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Segment, Item, Icon, List, Button } from 'semantic-ui-react';
+import { Segment, Item, Icon, List, Button, Grid } from 'semantic-ui-react';
 import EventListAttendee from './EventListAttendee';
 
 class EventListItem extends Component {
@@ -13,10 +13,9 @@ class EventListItem extends Component {
                 <Item>
                   <Item.Image size="tiny" circular src={event.hostPhotoURL} />
                   <Item.Content>
-                    <Item.Header as="a">{event.title}</Item.Header>
+                    <Item.Header>{event.title}</Item.Header>
                     <Item.Description>
-                      Posted by 
-                      <a href="/"> {event.hostedBy}</a>
+                      Posted by {event.hostedBy}
                     </Item.Description>
                   </Item.Content>
                 </Item>
@@ -24,19 +23,26 @@ class EventListItem extends Component {
             </Segment>
             <Segment>
               <span>
-                <Icon name="clock" /> {event.date} |
-                <Icon name="marker" /> {event.venue}
+                <Icon name="clock" />{event.date} |
+                <Icon name="marker" />{event.venue}
               </span>
             </Segment>
             <Segment secondary>
               <List horizontal>
-                {event.attendees.map(attendee =>{
-                  return <EventListAttendee key={attendee.id} attendee={attendee} />                  
-                })}
+                {event.attendee &&
+                  event.attendees.map(attendee => {
+                    return (
+                      <EventListAttendee
+                        key={attendee.id}
+                        attendee={attendee}
+                      />
+                    );
+                  })}
               </List>
             </Segment>
             <Segment clearing>
               <span>{event.description}</span>
+              <br/>
               <Button as="a" color="teal" floated="right" content="View" />
             </Segment>
           </Segment.Group>
