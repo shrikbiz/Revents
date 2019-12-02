@@ -6,14 +6,14 @@ import * as serviceWorker from './serviceWorker';
 
 const rootEl = document.getElementById('root')
 
-let render = () =>{
+let render = () => {
     ReactDOM.render(
     <App />
     , rootEl);
 }
 
 if(module.hot){
-    module.hot.accept('./app/layout/App', ()=>{
+    module.hot.accept('./app/layout/App', () => {
         setTimeout(render);
     })
 }

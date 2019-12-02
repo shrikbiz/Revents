@@ -5,7 +5,7 @@ class EventListAttendee extends Component {
     state = {  }
     render() { 
         const {photoURL} = this.props.attendee;
-        // console.log(photoURL, name);
+        // console.log('ava');
         return (
           <List.Item>
             <Image as='a' size="mini" circular src={photoURL} />

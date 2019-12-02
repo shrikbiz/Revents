@@ -10,9 +10,18 @@ class EventForm extends Component {
     hostedBy: ""
   };
 
+  componentDidMount() {
+    if (this.props.selectedEvent !== null) {
+      this.setState({
+        ...this.props.selectedEvent
+      });
+    }
+  }
+
   handleFormSubmit = e => {
     e.preventDefault();
-    this.props.createEvent(this.state)
+    if (this.state.id) this.props.updatedEvent(this.state);
+    else this.props.createEvent(this.state);
   };
 
   handleInputChange = ({ target: { name, value } }) => {
@@ -20,7 +29,7 @@ class EventForm extends Component {
       [name]: value
     });
     // let today = new Date();
-    console.log(name, ":", value);
+    // console.log(name, ":", value);
   };
 
   render() {
