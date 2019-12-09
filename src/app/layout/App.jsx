@@ -9,6 +9,7 @@ import PeopleDashboard from '../../features/user/peopleDashboard/PeopleDashboard
 import UserDetailedPage from '../../features/user/userDetailed/UserDetailedPage';
 import SettingsDashboard from '../../features/user/settings/SettingsDashboard';
 import EventForm from '../../features/events/eventForm/EventForm';
+import TestComponents from '../../features/testArea/TestComponent';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
           <Fragment>
             <NavBar />
             <Container className="main">
+              <Route path="/test" component={TestComponents} />
               <Route path="/events" component={EventDashboard} />
               <Route path="/events/:id" component={EventDetailedPage} />
               <Route path="/people" component={PeopleDashboard} />
