@@ -1,95 +1,45 @@
 import React, { Component } from "react";
-import { Grid, Button } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
 import EventList from "../eventList/EventList";
-import EventForm from "../eventForm/EventForm";
-import { getEvents } from "../../../data/Data";
-import cuid from "cuid";
+import { connect } from 'react-redux';
+import { createEvent, deleteEvent, updateEvent } from "../../eventActions";
 
 
+const mapState = (state) => ({
+  events: state.events
+})
+
+const actions ={
+  createEvent,
+  deleteEvent,
+  updateEvent
+}
 
 class EventDashboard extends Component {
-  state = {
-    events: getEvents(),
-    isOpen: false,
-    selectedEvent: null
-  };
-
-  handleFormOpen = () => {
-    this.setState({
-      isOpen: true,
-      selectedEvent: null
-    });
-  };
-
-  handleFormClose = () => {
-    this.setState({
-      isOpen: false
-    });
-  };
-
-  handleCreateEvent = newEvent => {
-    newEvent.id = cuid();
-    newEvent.hostPhotoURL = "/assets/user.png";
-    this.setState({
-      events: [...this.state.events, newEvent],
-      isOpen: false
-    });
-  };
-
-  handleSelectEvent = e => {
-    this.setState({
-      selectedEvent: e,
-      isOpen: true
-    });
-  };
-
-  handleUpdateEvent = updatedEvent => {
-    this.setState(({ events }) => ({
-      events: events.map(event => {
-        if (event.id === updatedEvent.id) {
-          return { ...updatedEvent };
-        } else {
-          return event;
-        }
-      }),
-      isOpen: false,
-      selectedEvent: null
-    }));
-  };
-
+ 
   handleDeleteEvent = id => {
-    this.setState(({ events }) => ({
-      events: events.filter(e => e.id !== id)
-    }));
+    this.props.deleteEvent(id)
   };
 
   render() {
-    const { events, isOpen, selectedEvent } = this.state;
+    const {events} = this.props;
+    let tempStyle = {
+      border: '5px dashed blue',
+      borderRadius: '.5em',
+      color: 'green'
+    }
 
     return (
       <Grid>
         <Grid.Column width={10}>
-          <EventList selectEvent={this.handleSelectEvent} deleteEvent={this.handleDeleteEvent} events={events} />
+          <EventList  deleteEvent={this.handleDeleteEvent} events={events} />
         </Grid.Column>
         <Grid.Column width={6}>
-          <Button
-            positive
-            onClick={this.handleFormOpen}
-            content="Create Event"
-          />
-          {isOpen && (
-            <EventForm
-              key={selectedEvent ? selectedEvent.id : 0}
-              updatedEvent={this.handleUpdateEvent}
-              selectedEvent={selectedEvent}
-              createEvent={this.handleCreateEvent}
-              closeForm={this.handleFormClose}
-            />
-          )}
+         <h2 style={tempStyle}>Activity Feed Coming Soon</h2>
         </Grid.Column>
       </Grid>
     );
   }
 }
 
-export default EventDashboard;
+export default connect(mapState, actions)(EventDashboard);
