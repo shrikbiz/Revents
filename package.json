@@ -15,6 +15,8 @@
     "react-dropzone": "^10.1.5",
     "react-infinite-scroller": "^1.2.4",
     "react-lazyload": "^2.5.0",
+    "react-load-script": "0.0.6",
+    "react-loadable": "^5.3.1",
     "react-places-autocomplete": "^7.2.1",
     "react-redux": "^5.1.1",
     "react-redux-firebase": "^2.2.6",
@@ -30,12 +32,10 @@
     "semantic-ui-react": "^0.87.1"
   },
   "scripts": {
-    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "deploy": "npm run build && firebase deploy"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -54,12 +54,9 @@
   },
   "devDependencies": {
     "@types/react-redux-toastr": "^7.4.1",
-    "@types/react-router-dom": "^4.3.5",
+    "@types/react-router-dom": "^4.3.3",
     "redux-devtools-extension": "^2.13.8",
     "source-map-explorer": "^1.5.0",
     "typescript": "^3.3"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
   }
 }
