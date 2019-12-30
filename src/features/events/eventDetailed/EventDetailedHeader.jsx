@@ -2,10 +2,10 @@ import React from "react";
 import { Segment, Header, Button } from "semantic-ui-react";
 import { Image } from "semantic-ui-react";
 import { Item } from "semantic-ui-react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const eventImageStyle = {
-  filter: "brightness(40%)"
+  filter: "brightness(30%)"
 };
 
 const eventImageTextStyle = {
@@ -36,7 +36,7 @@ const EventDetailedHeader = ({ event }) => {
                   content={event.title}
                   style={{ color: "white" }}
                 />
-                <p>Event Date</p>
+                <p>{event.date}</p>
                 <p>
                   Hosted by <strong>{event.hostedBy}</strong>
                 </p>
@@ -50,7 +50,11 @@ const EventDetailedHeader = ({ event }) => {
         <Button>Cancel My Place</Button>
         <Button color="teal">JOIN THIS EVENT</Button>
 
-        <Button as={Link} to={`/manage/${event.id}`} color="orange" floated="right">
+        <Button
+          as={Link}
+          to={`/manage/${event.id}`}
+          color="orange"
+          floated="right">
           Manage Event
         </Button>
       </Segment>
