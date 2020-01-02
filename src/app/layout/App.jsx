@@ -10,11 +10,14 @@ import SettingsDashboard from '../../features/user/settings/SettingsDashboard';
 import EventForm from '../../features/events/eventForm/EventForm';
 import TestComponents from '../../features/testArea/TestComponent';
 import { withRouter, Route, Switch } from "react-router-dom";
+import ModalManagaer from "../../features/modals/ModalManagaer";
+
 
 class App extends Component {
 render() {
   return (
     <Fragment>
+      <ModalManagaer />
       <Route exact path="/" component={HomePage} />
       <Route
         path="/(.+)"

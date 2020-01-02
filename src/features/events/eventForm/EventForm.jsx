@@ -10,14 +10,13 @@ import {
   hasLengthGreaterThan
 } from "revalidate";
 import { Segment, Form, Button, Grid, Header } from "semantic-ui-react";
-// import { createEvent, updateEvent } from "../eventActions";
 import cuid from "cuid";
 import TextInput from "../../../app/common/form/TextInput";
 import TextArea from "../../../app/common/form/TextArea";
 import SelectInput from "../../../app/common/form/SelectInput";
 import DateInput from "../../../app/common/form/DateInput";
-import { createEvent, updateEvent } from "../../eventActions";
 import PlaceInput from "../../../app/common/form/PlaceInput";
+import { createEvent, updateEvent } from "../eventActions";
 
 const mapState = (state, ownProps) => {
   const eventId = ownProps.match.params.id;

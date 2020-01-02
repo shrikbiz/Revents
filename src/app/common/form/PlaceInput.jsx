@@ -1,8 +1,6 @@
 import React from "react";
 import PlacesAutocomplete from "react-places-autocomplete";
-import { Form, Segment } from "semantic-ui-react";
-import { Label } from "semantic-ui-react";
-import { List } from "semantic-ui-react";
+import { Form, Segment, Label, List } from "semantic-ui-react";
 
 const PlaceInput = ({
   input: { value, onChange, onBlur },

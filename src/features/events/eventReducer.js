@@ -1,5 +1,6 @@
-import { createReducers } from "../app/common/utils/reducerUtils";
+
 import { CREATE_EVENT, UPDATE_EVENT, DELETE_EVENT } from "./eventConstants";
+import { createReducers } from '../../app/common/utils/reducerUtils';
 
 const initialState = [
   {

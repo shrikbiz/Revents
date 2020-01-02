@@ -1,7 +1,5 @@
 import React from "react";
-import { Segment, Header, Button } from "semantic-ui-react";
-import { Image } from "semantic-ui-react";
-import { Item } from "semantic-ui-react";
+import { Segment, Header, Button, Image, Item } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 const eventImageStyle = {
